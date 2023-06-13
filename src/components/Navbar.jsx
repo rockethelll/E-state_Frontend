@@ -8,7 +8,7 @@ const Navbar = ({ user }) => {
           <>
             <Link to="/">
               <img
-                src="../../public/images/estate-logo.svg "
+                src="./images/estate-logo.svg "
                 width="85px"
                 height="auto"
                 alt=""
@@ -24,7 +24,7 @@ const Navbar = ({ user }) => {
           <>
             <Link to="/">
               <img
-                src="../../public/images/estate-logo.svg "
+                src="./images/estate-logo.svg "
                 width="85px"
                 height="auto"
                 alt=""
