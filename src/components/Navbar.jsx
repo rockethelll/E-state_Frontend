@@ -24,7 +24,7 @@ const Navbar = ({ user }) => {
           <>
             <Link to="/">
               <img
-                src="@/../images/estate-logo.svg "
+                src="@/../public/images/estate-logo.svg "
                 width="85px"
                 height="auto"
                 alt=""
