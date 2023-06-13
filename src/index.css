@@ -1,3 +1,73 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "montserrat";
+  src: url("./assets/fonts/montserrat/Montserrat-VariableFont_wght.ttf");
+}
+@layer base {
+  :root {
+    --black: #0c0c0c;
+    --white: #fbfbfb;
+    color: var(--black);
+  }
+  html {
+    font-family: "montserrat";
+  }
+  body {
+    background-color: var(--white);
+    height: 200vh;
+  }
+  main,
+  .nav__wrapper {
+    max-width: 70vw;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .nav-link * {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .btn,
+  button {
+    padding: 0.5em 1em;
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  .hero {
+    background-image: url("../public/images/hero-estate.jpg");
+    width: 100%;
+    height: calc(100vh - 85px);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-wrapper {
+    max-width: 70vw;
+    width: 100%;
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 70vw;
+    width: 100%;
+  }
+  [type="search"] {
+    width: 100%;
+  }
+
+  .auto-grid {
+    --min-column-size: 326px;
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(var(--min-column-size), 100%), 1fr)
+    );
+  }
+}
