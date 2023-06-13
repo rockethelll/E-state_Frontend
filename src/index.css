@@ -38,7 +38,7 @@
   }
 
   .hero {
-    background-image: url("../public/images/hero-estate.jpg");
+    background-image: url("./images/hero-estate.jpg");
     width: 100%;
     height: calc(100vh - 85px);
     background-position: center;
