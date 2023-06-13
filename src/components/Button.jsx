@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Button({ content, action, type }) {
   switch (type) {
     case "primary":
