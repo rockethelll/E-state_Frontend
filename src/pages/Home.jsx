@@ -14,7 +14,7 @@ const home = () => {
   fetchApi()
 
   return (
-    <div className="text-3xl font-bold underline">
+    <div className=" font-montserrat text-3xl font-bold underline">
       <h1>Home page</h1>
 
     </div>
