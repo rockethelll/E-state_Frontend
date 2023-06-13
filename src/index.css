@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'montserrat';
-  src: url('./assets/fonts/montserrat/test/Montserrat-VariableFont_wght.ttf');
+  src: url('./assets/fonts/montserrat/Montserrat-VariableFont_wght.ttf');
 }
 @layer base {
   html {
