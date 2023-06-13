@@ -14,7 +14,7 @@ export default function Hero() {
               placeholder="Start finding your happiness"
             />
             <img
-              src="@/../images/search_icon.svg"
+              src="./images/search_icon.svg"
               width={"45px"}
               alt=""
             />
