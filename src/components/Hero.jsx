@@ -7,17 +7,13 @@ export default function Hero() {
             Discover a place <br />
             you will love to live
           </h1>
-          <form className="mt-5 px-5 py-2 flex justify-between bg-white items-center w-100">
+          <form className="mt-10 px-5 py-3 flex justify-between bg-white items-center w-100 drop-shadow">
             <input
-              className="  text-3xl font-semibold bg-white "
+              className="text-3xl font-semibold bg-white"
               type="search"
               placeholder="Start finding your happiness"
             />
-            <img
-              src="./images/search_icon.svg"
-              width={"45px"}
-              alt=""
-            />
+            <img src="../images/search_icon.svg" width={"40px"} alt="" />
           </form>
         </div>
       </div>
