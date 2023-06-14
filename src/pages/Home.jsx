@@ -1,28 +1,23 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import Hero from "../components/Hero";
-import useDataFetching from "../custom/useFetch";
+import axiosClient from "../axiosClient";
+import { useQuery, useQueryClient } from "react-query";
+
+function useEstates() {
+  return useQuery({
+    queryKey: ["estates"],
+    queryFn: async () => {
+      const { data } = await axiosClient.get("/estates");
+      return data;
+    },
+  });
+}
 
 export default function Home() {
-  let [, sendGetRequest] = useDataFetching();
-
-  let [data, setData] = useState(null);
-
-  useEffect(() => {
-    sendGetRequest({
-      url: "https://estate-api.herokuapp.com/estates",
-      method: "GET",
-      action: getData,
-    });
-  }, []);
-
-  function getData(response) {
-    console.log(response)
-    const responseData = response.json();
-    responseData.then((d) => {
-      setData(d);
-    });
-  }
+  const queryClient = useQueryClient();
+  const { status, data, error, isFetching } = useEstates();
+  console.log({ status, data, error, isFetching });
 
   return (
     <>
@@ -31,13 +26,20 @@ export default function Home() {
         <h2 className="mb-10 text-3xl font-semibold">
           Découvrez les dernières annonces
         </h2>
-        <div className="auto-grid">
-          {data ? (
-            data.map((element) => <Card key={element.id} data={element} />)
-          ) : (
-            <p>Loading ...</p>
-          )}
-        </div>
+        {status === "loading" ? (
+          <p>Loading ...</p>
+        ) : status === "error" ? (
+          <p>Error: {error.message}</p>
+        ) : (
+          <>
+            <div>{isFetching ? "Background Updating..." : " "}</div>
+            <div className="auto-grid">
+              {data.map((element) => (
+                <Card key={element.id} data={element} />
+              ))}
+            </div>
+          </>
+        )}
       </main>
     </>
   );
