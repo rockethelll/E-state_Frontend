@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 
 const Navbar = ({ user }) => {
+  user = true;
   return (
-    <nav className=" sticky top-0 bg-white w-full">
+    <nav className=" sticky z-50 top-0 bg-white w-full drop-shadow">
       <div className="nav__wrapper flex justify-between items-center h-[85px]">
         {user ? (
           <>
@@ -15,7 +16,7 @@ const Navbar = ({ user }) => {
               />
             </Link>
             <div className="flex space-x-[2em] nav-link">
-              <Link to="/">Publier une annonce</Link>
+              <Link to="/new">Publier une annonce</Link>
               <Link to="/">Parcourir les annonces</Link>
               <Link to="/">Profil</Link>
             </div>
