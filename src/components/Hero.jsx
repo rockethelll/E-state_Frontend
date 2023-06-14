@@ -13,11 +13,7 @@ export default function Hero() {
               type="search"
               placeholder="Start finding your happiness"
             />
-            <img
-              src="./images/search_icon.svg"
-              width={"40px"}
-              alt=""
-            />
+            <img src="../images/search_icon.svg" width={"40px"} alt="" />
           </form>
         </div>
       </div>

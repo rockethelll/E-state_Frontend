@@ -1,30 +1,30 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import useDataFetching from "../custom/useFetch";
 import Button from "../components/Button";
+import { useQuery, useQueryClient } from "react-query";
+import axiosClient from "../axiosClient";
+
+function useEstate(id) {
+  return useQuery({
+    queryKey: ["estate"],
+    queryFn: async () => {
+      const { data } = await axiosClient.get(`/estates/${id}`);
+      return data;
+    },
+  });
+}
+
 export default function Show() {
   const { id } = useParams();
-  let [, sendGetRequest] = useDataFetching();
-  let [data, setData] = useState(null);
+  const queryClient = useQueryClient();
+  const { status, data, error, isFetching } = useEstate(id);
 
-  useEffect(() => {
-    sendGetRequest({
-      url: `https://estate-api.herokuapp.com/estates/${id}`,
-      method: "GET",
-      action: getData,
-    });
-  }, []);
-
-  function getData(response) {
-    console.log(response);
-    const responseData = response.json();
-    responseData.then((d) => {
-      setData(d);
-    });
-  }
   return (
     <main className="mt-[5rem]">
-      {data ? (
+      {status === "loading" ? (
+        <p>Loading ...</p>
+      ) : status === "error" ? (
+        <p>Error : {error.message}</p>
+      ) : (
         <>
           <h2 className="text-3xl font-semibold">{data.title}</h2>
           <p className="my-2">Centre val de Loire - Angers - 49000</p>
@@ -51,8 +51,6 @@ export default function Show() {
             {data.description}
           </p>
         </>
-      ) : (
-        <p>Loading ...</p>
       )}
     </main>
   );
