@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import Button from "../components/Button";
 import { useQuery, useQueryClient } from "react-query";
 import axiosClient from "../axiosClient";
 
@@ -30,11 +29,8 @@ export default function Show() {
           <p className="my-2">Centre val de Loire - Angers - 49000</p>
           <h3 className="text-3xl font-semibold mt-2 mb-5">{data.price} €</h3>
           <div>
-            <Button content={"Contacter le vendeur"} className={"secondary"} />
-            <Button
-              content={"Voir le bien sur la carte"}
-              className={"secondary"}
-            />
+            <a href={`mailto:thomasleboss@yopmail.com`} className="btn">Contacter le vendeur</a>
+            <a className="btn">Voir le bien sur la carte</a>
           </div>
           <div className="h-full max-h-[700px]">
             <div className=" mt-5 grid h-fit grid-rows-2 grid-cols-2 gap-3  max-w-[40vw]">

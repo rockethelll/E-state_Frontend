@@ -1,12 +1,12 @@
-import Button from "../components/Button";
-
 export default function New() {
   return (
     <main className="mt-10 text-lightGrey min-h-[50vh] h-full">
       <div className=" flex justify-between gap-10">
         <div className="flex-1 h-full">
           <div className="file__wrapper">
-          <label className="absolute top-[-15px] left-[5px] bg-white px-3">Upload images</label>
+            <label className="absolute top-[-15px] left-[5px] bg-white px-3">
+              Upload images
+            </label>
             <span className="add--btn">+</span>
             <input type="file" />
           </div>
@@ -69,7 +69,10 @@ export default function New() {
             >
               Adresse
             </label>
-            <input className="bg-white border border-lightGrey h-[35px]" type="text" />
+            <input
+              className="bg-white border border-lightGrey h-[35px]"
+              type="text"
+            />
           </div>
           <div className=" flex flex-col relative">
             <label
@@ -84,11 +87,7 @@ export default function New() {
               type="text"
             />
           </div>
-          <Button
-            className={"primary"}
-            type={"submit"}
-            content={"Publier l'annonce"}
-          />
+          <input type="submit" className="btn btn bg-black text-white" />
         </form>
       </div>
     </main>
