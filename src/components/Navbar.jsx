@@ -1,4 +1,21 @@
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+import axiosClient from "../axiosClient.js";
+
+const getAuthToken = () => {
+  const bearer = Cookies.get("token");
+  return bearer ? `Bearer ${bearer}` : null;
+}
+
+const disconnect = async () => {
+  if (!getAuthToken()) return;
+
+  await axiosClient.delete(`/logout`, {
+    headers: {
+      Authorization: getAuthToken()
+    }
+  }).then(Cookies.remove('token'))
+}
 
 const Navbar = ({ user }) => {
   user = true;
@@ -34,6 +51,10 @@ const Navbar = ({ user }) => {
             <Link to="/signup" className="btn">
               Créer un compte
             </Link>
+            <Link to="/login" className="btn">
+              Se connecter
+            </Link>
+            <button onClick={disconnect}>Se déconnecter</button>
           </>
         )}
       </div>
