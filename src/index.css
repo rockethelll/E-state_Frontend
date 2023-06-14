@@ -10,7 +10,7 @@
   :root {
     --black: #0c0c0c;
     --white: #fbfbfb;
-    --light-grey : #acacac;
+    --light-grey: #acacac;
     color: var(--black);
   }
   html {
@@ -38,7 +38,7 @@
   }
 
   .hero {
-    background-image: url("./images/hero-estate.jpg");
+    background-image: url("../images/hero-estate.jpg");
     width: 100%;
     height: calc(100vh - 85px);
     background-position: center;
@@ -60,7 +60,7 @@
   [type="search"] {
     width: 100%;
   }
-  .file__wrapper{
+  .file__wrapper {
     max-height: 325px;
     width: 100%;
     aspect-ratio: 4/3;
@@ -68,21 +68,20 @@
     border: 5px dashed var(--light-grey);
     position: relative;
   }
-  .add--btn{
+  .add--btn {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     font-size: 20rem;
     font-weight: 600;
     line-height: 0;
     color: var(--light-grey);
   }
-  [type="file"]{
+  [type="file"] {
     height: 100%;
     width: 100%;
     opacity: 0;
-
   }
   [type="file"] button {
     display: none;
