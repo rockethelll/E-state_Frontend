@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     sendGetRequest({
-      url: "https://estate-api.herokuapp.com/estates",
+      url: "http://127.0.0.1:4000/estates",
       method: "GET",
       action: getData,
     });
