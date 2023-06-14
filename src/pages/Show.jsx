@@ -33,11 +33,7 @@ export default function Show() {
             <a className="btn">Voir le bien sur la carte</a>
           </div>
           <div className="h-full max-h-[700px]">
-            <div className=" mt-5 grid h-fit grid-rows-2 grid-cols-2 gap-3  max-w-[40vw]">
-              <div className="cell-1">Test</div>
-              <div className="cell-2">Test</div>
-              <div className="cell-3">Test</div>
-            </div>
+            <div className="aspect-[16/9] max-w-[600px] h-full w-full bg-lightGrey mt-5"></div>
           </div>
           <p className="max-w-[40vw]">
             {data.description}

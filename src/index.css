@@ -44,7 +44,7 @@
     background-position: center;
     background-size: cover;
     display: flex;
-    align-items:  center;
+    align-items: center;
     justify-content: center;
   }
   .hero-wrapper {
@@ -95,21 +95,5 @@
       auto-fit,
       minmax(min(var(--min-column-size), 100%), 1fr)
     );
-  }
-
-  .cell-1 {
-    background-color: rgb(240, 84, 107);
-    aspect-ratio: 16/9;
-    grid-area: 1 / 1 / 2 / 3;
-  }
-  .cell-2 {
-    background-color: lightcoral;
-    grid-area: 2 / 1 / 3 / 2;
-    aspect-ratio: 16/9;
-  }
-  .cell-3 {
-    background-color: lightblue;
-    grid-area: 2 / 2 / 3 / 3;
-    aspect-ratio: 16/9;
   }
 }
