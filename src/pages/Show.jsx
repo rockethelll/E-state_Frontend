@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useDataFetching from "../custom/useFetch";
-import Button from "../components/Button";
 export default function Show() {
   const { id } = useParams();
   let [, sendGetRequest] = useDataFetching();
@@ -30,11 +29,8 @@ export default function Show() {
           <p className="my-2">Centre val de Loire - Angers - 49000</p>
           <h3 className="text-3xl font-semibold mt-2 mb-5">{data.price} €</h3>
           <div>
-            <Button content={"Contacter le vendeur"} className={"secondary"} />
-            <Button
-              content={"Voir le bien sur la carte"}
-              className={"secondary"}
-            />
+            <button className="btn">Contacter le vendeur</button>
+            <button className="btn">Voir le bien sur la carte</button>
           </div>
           <div className="h-full max-h-[700px]">
             <div className=" mt-5 grid h-fit grid-rows-2 grid-cols-2 gap-3  max-w-[40vw]">
