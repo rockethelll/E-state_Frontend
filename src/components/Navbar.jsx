@@ -18,7 +18,7 @@ const disconnect = async () => {
 }
 
 const Navbar = ({ user }) => {
-  user = false;
+  user = true;
   return (
     <nav className=" sticky z-50 top-0 bg-white w-full drop-shadow">
       <div className="nav__wrapper flex justify-between items-center h-[85px]">
