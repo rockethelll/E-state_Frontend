@@ -96,4 +96,29 @@
       minmax(min(var(--min-column-size), 100%), 1fr)
     );
   }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .input__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--light-grey);
+  }
+
+  .input {
+    background-color: var(--white);
+  }
+  .label {
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    background-color: var(--white);
+    padding: 0 0.2em;
+  }
 }
