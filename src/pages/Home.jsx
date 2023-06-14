@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import Hero from "../components/Hero";
 import axiosClient from "../axiosClient";
@@ -17,7 +16,6 @@ function useEstates() {
 export default function Home() {
   const queryClient = useQueryClient();
   const { status, data, error, isFetching } = useEstates();
-  console.log({ status, data, error, isFetching });
 
   return (
     <>

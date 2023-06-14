@@ -1,7 +1,7 @@
 import axiosClient from "../axiosClient.js";
 import useSessionCookie from "../createCookie.js";
 
-const Signup = () => {
+const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,13 +12,13 @@ const Signup = () => {
   }
 
   const createUser = async (data) => {
-    const response = await axiosClient.post("/signup", data);
+    const response = await axiosClient.post("/login", data);
     useSessionCookie(response)
   }
 
   return (
     <>
-      <h1>S'inscrire</h1>
+      <h1>Se connecter</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <label name='email'>Email</label>
         <input
@@ -48,4 +48,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

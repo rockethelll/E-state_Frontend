@@ -5,6 +5,7 @@ import Signup from "./pages/Signup.jsx";
 import Show from "./pages/Show.jsx";
 import New from "./pages/New.jsx";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Login from "./pages/Login.jsx";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup /> } />
+        <Route path="/login" element={<Login /> } />
         <Route path="/show/:id" element={<Show />} />
         <Route path="/new" element={<New />} />
       </Routes>
