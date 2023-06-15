@@ -1,19 +1,16 @@
 import { createContext, useState } from "react";
 
-export const UserContext = createContext()
+export const UserContext = createContext();
 
-const UserContextProvider = props => {
-  const [isLogin, setIsLogin] = useState(false)
+const UserContextProvider = (props) => {
+  const [userID, setUserID] = useState(-1);
+  console.log(userID, "context");
 
-  const toggleUser = () => {
-    setIsLogin((current) => !current)
-  }
-  
   return (
-    <UserContext.Provider value={{ toggleUser, isLogin }}>
-    {props.children}
-  </UserContext.Provider>
-  )
-}
+    <UserContext.Provider value={{ setUserID, userID }}>
+      {props.children}
+    </UserContext.Provider>
+  );
+};
 
-export default UserContextProvider
+export default UserContextProvider;

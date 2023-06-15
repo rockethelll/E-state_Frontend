@@ -5,7 +5,7 @@ import { UserContext } from "../Context/UserContext.jsx";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { toggleUser } = useContext(UserContext);
+  const { setUserID, userID } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -19,10 +19,11 @@ const Login = () => {
   const createUser = async (data) => {
     const response = await axiosClient.post("/login", data);
     useSessionCookie(response);
-    toggleUser();
+    setUserID(response.data.data.id);
     navigate("/");
   };
 
+  console.log(userID);
   return (
     <main>
       <div className="my-16 container grid gap-4 grid-cols-2 shadow-xl">
@@ -44,26 +45,40 @@ const Login = () => {
             </Link>
           </p>
           <form
-            className="form gap-10 mt-5 text-lightGrey"
+            className="flex flex-col flex-1 justify-between w-full"
             onSubmit={(e) => handleSubmit(e)}
           >
-            <div className="input__wrapper">
-              <label name="email" className="label">
+            <div className="mt-12 relative flex flex-col border border-lightGrey">
+              <label
+                name="email"
+                className="absolute top-[-15px] left-[15px] bg-white text-lightGrey px-3"
+              >
                 E-mail
               </label>
-              <input className="input h-[30px]" type="email" name="email" />
+              <input
+                className="bg-white h-[30px] pl-4"
+                type="email"
+                name="email"
+              />
             </div>
-            <div className="input__wrapper">
-              <label name="password" className="label">
+            <div className="mt-12 relative flex flex-col border border-lightGrey">
+              <label
+                name="password"
+                className="absolute top-[-15px] left-[15px] bg-white text-lightGrey px-3"
+              >
                 Mot de passe
               </label>
-              <input className="input h-[30px]" type="password" name="password" />
+              <input
+                className="bg-white h-[30px] pl-4"
+                type="password"
+                name="password"
+              />
             </div>
 
             <div className="flex justify-end">
               <input
                 type="submit"
-                className="btn bg-black text-white w-1/2 cursor-pointer"
+                className="mt-8 btn bg-black text-white w-1/2 cursor-pointer"
                 value={"Se connecter"}
               />
             </div>

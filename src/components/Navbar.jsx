@@ -4,50 +4,50 @@ import axiosClient from "../axiosClient.js";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext.jsx";
 
-
 const Navbar = () => {
-  const { toggleUser, isLogin } = useContext(UserContext)
+  const { setUserID, userID } = useContext(UserContext);
 
   const getAuthToken = () => {
     const bearer = Cookies.get("token");
     return bearer ? `Bearer ${bearer}` : null;
-  }
+  };
 
   const disconnect = async () => {
     if (!getAuthToken()) return;
 
     await axiosClient.delete(`/logout`, {
       headers: {
-        Authorization: getAuthToken()
-      }
-    })
-    Cookies.remove('token')
-    toggleUser()
-  }
+        Authorization: getAuthToken(),
+      },
+    });
+    Cookies.remove("token");
+    setUserID(-1);
+  };
 
   return (
     <nav className=" sticky z-50 top-0 bg-white w-full drop-shadow">
       <div className="nav__wrapper flex justify-between items-center h-[85px]">
         <>
-        <Link to="/">
-          <img
-            src="../images/estate-logo.svg "
-            width="85px"
-            height="auto"
-            alt=""
-          />
-        </Link>
-        {isLogin ? (
-          <div className="flex space-x-[2em] nav-link">
-            <Link to="/new">Publier une annonce</Link>
-            <Link to="/">Parcourir les annonces</Link>
-            <Link to="/">Profil</Link>
+          <Link to="/">
+            <img
+              src="../images/estate-logo.svg "
+              width="85px"
+              height="auto"
+              alt=""
+            />
+          </Link>
+          {userID >= 0 ? (
+            <div className="flex space-x-[2em] nav-link">
+              <Link to="/new">Publier une annonce</Link>
+              <Link to="/">Parcourir les annonces</Link>
+              <Link to="/">Profil</Link>
               <button
                 onClick={disconnect}
                 className="btn-primary cursor-pointer"
-              
-              >Se déconnecter</button>
-          </div>
+              >
+                Se déconnecter
+              </button>
+            </div>
           ) : (
             <>
               <Link to="/login" className="btn bg-black text-white">
@@ -55,7 +55,7 @@ const Navbar = () => {
               </Link>
             </>
           )}
-          </>
+        </>
       </div>
     </nav>
   );
