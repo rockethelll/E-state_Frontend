@@ -2,10 +2,11 @@ import { useContext } from "react";
 import axiosClient from "../axiosClient.js";
 import useSessionCookie from "../createCookie.js";
 import { UserContext } from "../Context/UserContext.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { toggleUser } = useContext(UserContext)
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ const Login = () => {
     const response = await axiosClient.post("/login", data);
     useSessionCookie(response)
     toggleUser()
+    navigate('/')
   }
 
   return (

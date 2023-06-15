@@ -29,7 +29,6 @@ const Navbar = () => {
     <nav className=" sticky z-50 top-0 bg-white w-full drop-shadow">
       <div className="nav__wrapper flex justify-between items-center h-[85px]">
         <>
-          <p>{isLogin ? 'User is login' : 'Not login'}</p>
         <Link to="/">
           <img
             src="../images/estate-logo.svg "
@@ -45,7 +44,7 @@ const Navbar = () => {
             <Link to="/">Profil</Link>
               <button
                 onClick={disconnect}
-                className="btn bg-black text-white  cursor-pointer"
+                className="btn-primary cursor-pointer"
               
               >Se déconnecter</button>
           </div>

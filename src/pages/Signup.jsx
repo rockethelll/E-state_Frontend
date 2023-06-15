@@ -2,9 +2,11 @@ import axiosClient from "../axiosClient.js";
 import useSessionCookie from "../createCookie.js";
 import { UserContext } from "../Context/UserContext.jsx";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const { toggleUser } = useContext(UserContext)
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ const Signup = () => {
     const response = await axiosClient.post("/signup", data);
     useSessionCookie(response)
     toggleUser()
+    navigate('/')
   }
 
   return (
