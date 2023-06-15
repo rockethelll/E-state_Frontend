@@ -6,7 +6,6 @@ const UserContextProvider = props => {
   const [isLogin, setIsLogin] = useState(false)
 
   const toggleUser = () => {
-    // setIsLogin(!isLogin)
     setIsLogin((current) => !current)
   }
   
