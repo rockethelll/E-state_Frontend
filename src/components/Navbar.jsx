@@ -1,62 +1,61 @@
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import axiosClient from "../axiosClient.js";
+import { useContext } from "react";
+import { UserContext } from "../Context/UserContext.jsx";
 
-const getAuthToken = () => {
-  const bearer = Cookies.get("token");
-  return bearer ? `Bearer ${bearer}` : null;
-}
 
-const disconnect = async () => {
-  if (!getAuthToken()) return;
+const Navbar = () => {
+  const { toggleUser, isLogin } = useContext(UserContext)
 
-  await axiosClient.delete(`/logout`, {
-    headers: {
-      Authorization: getAuthToken()
-    }
-  }).then(Cookies.remove('token'))
-}
+  const getAuthToken = () => {
+    const bearer = Cookies.get("token");
+    return bearer ? `Bearer ${bearer}` : null;
+  }
 
-const Navbar = ({ user }) => {
-  user = true;
+  const disconnect = async () => {
+    if (!getAuthToken()) return;
+
+    await axiosClient.delete(`/logout`, {
+      headers: {
+        Authorization: getAuthToken()
+      }
+    })
+    Cookies.remove('token')
+    toggleUser()
+  }
+
   return (
     <nav className=" sticky z-50 top-0 bg-white w-full drop-shadow">
       <div className="nav__wrapper flex justify-between items-center h-[85px]">
-        {user ? (
-          <>
-            <Link to="/">
-              <img
-                src="../images/estate-logo.svg "
-                width="85px"
-                height="auto"
-                alt=""
-              />
-            </Link>
-            <div className="flex space-x-[2em] nav-link">
-              <Link to="/new">Publier une annonce</Link>
-              <Link to="/">Parcourir les annonces</Link>
-              <Link to="/">Profil</Link>
-            </div>
+        <>
+        <Link to="/">
+          <img
+            src="../images/estate-logo.svg "
+            width="85px"
+            height="auto"
+            alt=""
+          />
+        </Link>
+        {isLogin ? (
+          <div className="flex space-x-[2em] nav-link">
+            <Link to="/new">Publier une annonce</Link>
+            <Link to="/">Parcourir les annonces</Link>
+            <Link to="/">Profil</Link>
+              <button
+                onClick={disconnect}
+                className="btn-primary cursor-pointer"
+              
+              >Se déconnecter</button>
+          </div>
+          ) : (
+            <>
+              <Link to="/login" className="btn bg-black text-white">
+                Se connecter
+              </Link>
+            </>
+          )}
           </>
-        ) : (
-          <>
-            <Link to="/">
-              <img
-                src="../images/estate-logo.svg "
-                width="85px"
-                height="auto"
-                alt=""
-              />
-            </Link>
-            <Link to="/signup" className="btn">
-              Créer un compte
-            </Link>
-            <Link to="/login" className="btn">
-              Se connecter
-            </Link>
-            <button onClick={disconnect}>Se déconnecter</button>
-          </>
-        )}
       </div>
     </nav>
   );
