@@ -47,11 +47,8 @@ export default function New() {
             />
           </div>
           <div className="details flex ">
-            <div className="flex flex-col w-[150px] relative">
-              <label
-                className="absolute top-[-15px] left-[15px] bg-white px-3"
-                htmlFor=""
-              >
+            <div className="input__wrapper">
+              <label className="label" htmlFor="">
                 Prix
               </label>
               <input
@@ -64,15 +61,12 @@ export default function New() {
                 {...register("price")}
               />
             </div>
-            <div className="flex flex-col w-[80px] ml-10 relative">
-              <label
-                className="absolute top-[-15px] left-[5px] bg-white px-3"
-                htmlFor=""
-              >
+            <div className="input__wrapper w-[80px] ml-10">
+              <label className="label" htmlFor="">
                 Chambres
               </label>
               <input
-                className=" bg-white border border-lightGrey pl-[5px] h-[35px]"
+                className=" input pl-[5px] h-[35px]"
                 type="number"
                 defaultValue={0}
                 max={20}
@@ -81,11 +75,8 @@ export default function New() {
                 {...register("rooms")}
               />
             </div>
-            <div className="flex flex-col ml-10  w-[60px] relative">
-              <label
-                className="absolute top-[-15px] left-[5px] bg-white px-3"
-                htmlFor=""
-              >
+            <div className=" input__wrapper w-[80px] ml-10 pt-2 pl-1 h-[35px]">
+              <label className="label" htmlFor="">
                 Meublé
               </label>
               <select
@@ -123,14 +114,10 @@ export default function New() {
             <input
               className="bg-white border border-lightGrey h-[35px]"
               type="text"
-              {...register("adress")}
             />
           </div>
-          <div className=" flex flex-col relative">
-            <label
-              className="absolute top-[-15px] left-[15px] bg-white px-3"
-              htmlFor=""
-            >
+          <div className=" input__wrapper">
+            <label className="label" htmlFor="">
               Description
             </label>
             <textarea
