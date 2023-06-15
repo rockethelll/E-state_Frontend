@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import axiosClient from "../axiosClient.js";
 import { useContext } from "react";
-import { UserContext } from "../Context/UserConctex.jsx";
+import { UserContext } from "../Context/UserContext.jsx";
 
 
 const Navbar = () => {
