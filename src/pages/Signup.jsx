@@ -38,13 +38,13 @@ const Signup = () => {
               <label name="email" className="label">
                 E-mail
               </label>
-              <input className="input" type="email" name="email" />
+              <input className="input h-[30px]" type="email" name="email" />
             </div>
             <div className="input__wrapper">
               <label name="password" className="label">
                 Mot de passe
               </label>
-              <input className="input" type="password" name="password" />
+              <input className="input h-[30px]" type="password" name="password" />
             </div>
 
             <div className="flex justify-end">

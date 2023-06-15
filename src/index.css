@@ -113,6 +113,7 @@
 
   .input {
     background-color: var(--white);
+    padding-left: 16px;
   }
   .label {
     position: absolute;
