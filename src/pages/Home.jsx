@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <main className="mt-10">
+      <main className="my-10">
         <h2 className="mb-10 text-3xl font-semibold">
           Découvrez les dernières annonces
         </h2>

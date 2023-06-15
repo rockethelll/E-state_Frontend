@@ -69,7 +69,7 @@ const Login = () => {
                 Mot de passe
               </label>
               <input
-                className="bg-white h-[30px] pl-4"
+                className="input h-[30px]"
                 type="password"
                 name="password"
               />
