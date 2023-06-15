@@ -7,15 +7,15 @@ import { UserContext } from "../Context/UserContext.jsx";
 
 const Navbar = () => {
   const { toggleUser, isLogin } = useContext(UserContext)
-  
+
   const getAuthToken = () => {
     const bearer = Cookies.get("token");
     return bearer ? `Bearer ${bearer}` : null;
   }
-  
+
   const disconnect = async () => {
     if (!getAuthToken()) return;
-  
+
     await axiosClient.delete(`/logout`, {
       headers: {
         Authorization: getAuthToken()
