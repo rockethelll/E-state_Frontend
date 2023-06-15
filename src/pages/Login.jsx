@@ -22,41 +22,40 @@ const Login = () => {
   }
 
   return (
-    <main className="w-1/2">
-      <div className=" my-10 container grid gap-4 grid-cols-2 grid-rows-1 shadow-xl">
+    <main>
+      <div className="my-16 container grid gap-4 grid-cols-2 shadow-xl">
 
-        <div className="hero"></div>
+        <div className="hero-login"></div>
 
-        <div className="form w-max">
-          <h1>Se connecter</h1>
-          <h6>Connectez-vous avec votre email</h6>
+        <div className="w-max ml-10">
+          <h1 className="my-10 text-4xl font-extrabold">Se connecter</h1>
+          <h6 className=" text-2xl font-medium">Connectez-vous avec votre email</h6>
           <p>Pas encore de compte ?
-          <Link to="/signup" className="btn">
+          <Link to="/signup" className="ml-4 text-blue-600" style={{color: 'blue', fontWeight: '500'}}>
                 Créer un compte
               </Link>
           </p>
-          <form className='flex flex-col justify-center items-center' onSubmit={(e) => handleSubmit(e)} >
-            <label name='email'>Email</label>
-            <input
-              type='email'
-              name='email'
-            />
-            <label name='password'>Mot de passe</label>
-            <input
-              type='password'
-              name='password'
-            />
-            <input
-              type="submit"
-              style={
-                {
-                  color: 'white',
-                  background: 'black',
-                  padding: 15,
-                  cursor: 'pointer'
-                }
-              }
-            />
+          <form className='flex flex-col flex-1 justify-between w-full' onSubmit={(e) => handleSubmit(e)} >
+            <div className="mt-12 relative flex flex-col border border-lightGrey">
+              <label name='email' className="absolute top-[-15px] left-[15px] bg-white px-3" >E-mail</label>
+              <input
+                className="bg-white h-[30px] pl-4"
+                type='email'
+                name='email'
+              />
+            </div>
+            <div className="mt-12 relative flex flex-col border border-lightGrey">
+              <label name='password' className="absolute top-[-15px] left-[15px] bg-white px-3">Mot de passe</label>
+              <input
+                className="bg-white h-[30px] pl-4"
+                type='password'
+                name='password'
+              />
+            </div>
+
+            <div className='flex justify-end'>
+              <input type="submit" className="mt-8 btn bg-black text-white w-1/2 cursor-pointer" value={'Se connecter'} />
+            </div>
           </form>
         </div>
 

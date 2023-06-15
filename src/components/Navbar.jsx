@@ -42,11 +42,15 @@ const Navbar = () => {
             <Link to="/new">Publier une annonce</Link>
             <Link to="/">Parcourir les annonces</Link>
             <Link to="/">Profil</Link>
-            <button onClick={ disconnect }>Se déconnecter</button>
+              <button
+                onClick={disconnect}
+                className="btn bg-black text-white  cursor-pointer"
+              
+              >Se déconnecter</button>
           </div>
           ) : (
             <>
-              <Link to="/login" className="btn">
+              <Link to="/login" className="btn bg-black text-white">
                 Se connecter
               </Link>
             </>
