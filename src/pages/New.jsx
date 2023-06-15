@@ -1,42 +1,21 @@
-import { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import Cookies from "js-cookie";
 
 export default function New() {
+  const token = Cookies.get("token");
   const { register, handleSubmit } = useForm();
   const onSubmit = (e) => {
-    // console.log(register);
     console.log(e);
-    // e.preventDefault();
     axios
-      .post("https://estate-api.herokuapp.com/estates", formState)
+      .post("https://estate-api.herokuapp.com/estates", e, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => console.log(response.data))
       .catch((error) => console.error("Error:", error));
   };
-
-  const [formState, setFormState] = useState({
-    title: "",
-    price: 0,
-    description: "",
-    rooms: 0,
-    area: 0,
-    furnished: "Non",
-  });
-
-  // const handleChange = (e) => {
-  //   const value = e.target.value;
-  //   console.log(typeof e.target.value);
-  //   const name = e.target.name;
-  //   setFormState((prevState) => ({ ...prevState, [name]: value }));
-  // };
-  // console.log(formState);
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   axios
-  //     .post("https://estate-api.herokuapp.com/estates", formState)
-  //     .then((response) => console.log(response.data))
-  //     .catch((error) => console.error("Error:", error));
-  // };
   return (
     <main className="mt-10 text-lightGrey min-h-[50vh] h-full">
       <form
