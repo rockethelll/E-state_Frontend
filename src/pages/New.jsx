@@ -18,29 +18,21 @@ export default function New() {
   };
   return (
     <main className="mt-10 text-lightGrey min-h-[50vh] h-full">
-      <form
-        className=" flex justify-between gap-10"
-        onSubmit={handleSubmit(onSubmit)}
-      >
+      <form className="form gap-10" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex-1 h-full">
           <div className="file__wrapper">
-            <label className="absolute top-[-15px] left-[5px] bg-white px-3">
-              Upload images
-            </label>
+            <label className="label">Upload images</label>
             <span className="add--btn">+</span>
             <input type="file" />
           </div>
         </div>
         <div className="flex flex-col flex-1 justify-between w-full">
-          <div className=" relative flex flex-col border border-lightGrey">
-            <label
-              className="absolute top-[-15px] left-[15px] bg-white px-3"
-              htmlFor=""
-            >
+          <div className=" input__wrapper">
+            <label className="label" htmlFor="">
               Titre
             </label>
             <input
-              className="bg-white h-[30px]"
+              className="input h-[30px]"
               type="text"
               name="title"
               {...register("title")}
@@ -48,11 +40,9 @@ export default function New() {
           </div>
           <div className="details flex ">
             <div className="input__wrapper">
-              <label className="label" htmlFor="">
-                Prix
-              </label>
+              <label className="label">Prix</label>
               <input
-                className=" bg-white border border-lightGrey h-[35px]"
+                className=" input h-[35px]"
                 type="number"
                 name="price"
                 min={0}
@@ -62,9 +52,7 @@ export default function New() {
               />
             </div>
             <div className="input__wrapper w-[80px] ml-10">
-              <label className="label" htmlFor="">
-                Chambres
-              </label>
+              <label className="label">Chambres</label>
               <input
                 className=" input pl-[5px] h-[35px]"
                 type="number"
@@ -76,11 +64,9 @@ export default function New() {
               />
             </div>
             <div className=" input__wrapper w-[80px] ml-10 pt-2 pl-1 h-[35px]">
-              <label className="label" htmlFor="">
-                Meublé
-              </label>
+              <label className="label">Meublé</label>
               <select
-                className="pl-[5px] bg-white h-[35px] border border-lightGrey"
+                className="pl-[5px] input h-[35px]"
                 name="furnished"
                 {...register("furnished")}
               >
@@ -88,15 +74,12 @@ export default function New() {
                 <option value="true">Oui</option>
               </select>
             </div>
-            <div className="flex flex-col w-[80px] ml-10 relative">
-              <label
-                className="absolute top-[-15px] left-[5px] bg-white px-3"
-                htmlFor=""
-              >
+            <div className=" input__wrapper w-[80px] ml-10">
+              <label className="label" htmlFor="">
                 Surface
               </label>
               <input
-                className=" bg-white border border-lightGrey pl-[5px] h-[35px]"
+                className=" input pl-[5px] h-[35px]"
                 type="number"
                 defaultValue={0}
                 name="area"
@@ -104,25 +87,17 @@ export default function New() {
               />
             </div>
           </div>
-          <div className=" flex flex-col relative">
-            <label
-              className="absolute top-[-15px] left-[15px] bg-white px-3"
-              htmlFor=""
-            >
-              Adresse
-            </label>
-            <input
-              className="bg-white border border-lightGrey h-[35px]"
-              type="text"
-            />
-          </div>
           <div className=" input__wrapper">
             <label className="label" htmlFor="">
-              Description
+              Adresse
             </label>
+            <input className="input h-[35px]" type="text" />
+          </div>
+          <div className=" input__wrapper">
+            <label className="label">Description</label>
             <textarea
               rows={4}
-              className="bg-white border border-lightGrey"
+              className="input"
               type="text"
               name="description"
               {...register("description")}
