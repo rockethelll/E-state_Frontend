@@ -5,58 +5,58 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const { toggleUser } = useContext(UserContext)
-  const navigate = useNavigate()
+  const { toggleUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const [email, password] = e.target;
     const data = { user: { email: email.value, password: password.value } };
-    createUser(data)
-  }
+    createUser(data);
+  };
 
   const createUser = async (data) => {
     const response = await axiosClient.post("/signup", data);
-    useSessionCookie(response)
-    toggleUser()
-    navigate('/')
-  }
+    useSessionCookie(response);
+    toggleUser();
+    navigate("/");
+  };
 
   return (
     <main>
       <div className="my-16 container grid gap-4 grid-cols-2 shadow-xl">
-
         <div className="hero-login"></div>
 
         <div className="w-max ml-10">
           <h1 className="my-10 text-4xl font-extrabold">Créer un compte</h1>
-          <form className='flex flex-col flex-1 justify-between w-full' onSubmit={(e) => handleSubmit(e)} >
-            <div className="mt-12 relative flex flex-col border border-lightGrey">
-              <label name='email' className="absolute top-[-15px] left-[15px] bg-white text-lightGrey px-3" >E-mail</label>
-              <input
-                className="bg-white h-[30px] pl-4"
-                type='email'
-                name='email'
-              />
+          <form
+            className="form text-lightGrey justify-between gap-10"
+            onSubmit={(e) => handleSubmit(e)}
+          >
+            <div className="input__wrapper">
+              <label name="email" className="label">
+                E-mail
+              </label>
+              <input className="input h-[30px]" type="email" name="email" />
             </div>
-            <div className="mt-12 relative flex flex-col border border-lightGrey">
-              <label name='password' className="absolute top-[-15px] left-[15px] bg-white text-lightGrey px-3">Mot de passe</label>
-              <input
-                className="bg-white h-[30px] pl-4"
-                type='password'
-                name='password'
-              />
+            <div className="input__wrapper">
+              <label name="password" className="label">
+                Mot de passe
+              </label>
+              <input className="input h-[30px]" type="password" name="password" />
             </div>
 
-            <div className='flex justify-end'>
-              <input type="submit" className="mt-8 btn bg-black text-white w-1/2 cursor-pointer" value={'Créer'} />
+            <div className="flex justify-end">
+              <input
+                type="submit"
+                className="btn bg-black text-white w-1/2 cursor-pointer"
+                value={"S'inscrire"}
+              />
             </div>
           </form>
         </div>
-
       </div>
-
     </main>
   );
 };
