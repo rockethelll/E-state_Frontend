@@ -20,8 +20,9 @@ const Navbar = () => {
       headers: {
         Authorization: getAuthToken()
       }
-    }).then(Cookies.remove('token'))
-    .then(toggleUser())
+    })
+    Cookies.remove('token')
+    toggleUser()
   }
 
   return (
