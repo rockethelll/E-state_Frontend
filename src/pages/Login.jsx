@@ -37,7 +37,7 @@ const Login = () => {
           </p>
           <form className='flex flex-col flex-1 justify-between w-full' onSubmit={(e) => handleSubmit(e)} >
             <div className="mt-12 relative flex flex-col border border-lightGrey">
-              <label name='email' className="absolute top-[-15px] left-[15px] bg-white px-3" >E-mail</label>
+              <label name='email' className="absolute top-[-15px] left-[15px] bg-white text-lightGrey px-3" >E-mail</label>
               <input
                 className="bg-white h-[30px] pl-4"
                 type='email'
@@ -45,7 +45,7 @@ const Login = () => {
               />
             </div>
             <div className="mt-12 relative flex flex-col border border-lightGrey">
-              <label name='password' className="absolute top-[-15px] left-[15px] bg-white px-3">Mot de passe</label>
+              <label name='password' className="absolute top-[-15px] left-[15px] bg-white text-lightGrey px-3">Mot de passe</label>
               <input
                 className="bg-white h-[30px] pl-4"
                 type='password'
