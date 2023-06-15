@@ -1,7 +1,10 @@
 import axiosClient from "../axiosClient.js";
 import useSessionCookie from "../createCookie.js";
+import { UserContext } from "../Context/UserConctex.jsx";
+import { useContext } from "react";
 
 const Signup = () => {
+  const { toggleUser } = useContext(UserContext)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,6 +17,7 @@ const Signup = () => {
   const createUser = async (data) => {
     const response = await axiosClient.post("/signup", data);
     useSessionCookie(response)
+    toggleUser()
   }
 
   return (
