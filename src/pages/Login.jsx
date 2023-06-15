@@ -57,7 +57,11 @@ const Login = () => {
               <label name="password" className="label">
                 Mot de passe
               </label>
-              <input className="input h-[30px]" type="password" name="password" />
+              <input
+                className="input h-[30px]"
+                type="password"
+                name="password"
+              />
             </div>
 
             <div className="flex justify-end">
